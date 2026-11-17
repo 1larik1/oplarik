@@ -1,0 +1,36 @@
+# Builds OpLarik and publishes a GitHub release when a tag vX.Y.Z is pushed.
+# The release carries OpLarik.exe + OpLarik.exe.sha256 (used by the in-app
+# updater) and the program / source zips. Release notes: .github/release-notes.md
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.7"
+      - name: Check version matches tag
+        run: |
+          V=$(grep -oP 'const appVersion = "\K[^"]+' main.go)
+          test "v$V" = "$GITHUB_REF_NAME" || { echo "main.go has $V, tag is $GITHUB_REF_NAME"; exit 1; }
+      - name: Test
+        run: go test ./...
+      - name: Build
+        run: |
+          mkdir -p dist
+          cp README.md THIRD-PARTY-NOTICES.txt dist/
+          bash tools/package.sh
+          cat dist/OpLarik.exe.sha256
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V=${GITHUB_REF_NAME#v}
+          gh release create "$GITHUB_REF_NAME" --title "OpLarik $V" --notes-file .github/release-notes.md \
+            dist/OpLarik.exe dist/OpLarik.exe.sha256 "dist/OpLarik-$V-win-x64.zip" "dist/OpLarik-$V-source.zip"
