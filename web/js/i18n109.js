@@ -1,0 +1,43 @@
+// Strings added in OpLarik 1.0.9 (merged into STRINGS by i18n.js).
+export const S109 = {
+  en: {
+    'play.e.launcher_missing': 'This game needs its launcher (Steam, Epic Games or Riot Client), and OpLarik didn’t find it. Start the launcher once or reinstall it.',
+    'play.adminQ': 'Start as administrator?', 'play.adminD': 'Windows didn’t let OpLarik start {name} with your normal rights (the Secondary Logon service may be turned off). The game can start as administrator instead: it works, but Steam may warn about it and other apps’ overlays may not appear.', 'play.adminGo': 'Start as administrator',
+    'play.btn': 'Play', 'play.title': 'Play', 'play.sub': 'Your games, most recently played first', 'play.all': 'All games ({n})',
+    'play.last': 'played {when}', 'play.never': 'not played yet', 'play.total': '{h} h {m} min in total', 'play.totalM': '{m} min in total',
+    'play.started': 'Starting {name}…', 'play.via': 'Through {via}',
+    'play.autoHint': 'Tip: turn on automatic game mode on the Boost page and Boost will switch on by itself.',
+    'play.e.no_path': 'OpLarik doesn’t know where this game is installed. Remove it and add it again with “Find installed games” or “Add a game”.',
+    'play.e.not_found': 'The game file wasn’t found. It may have been moved or uninstalled.',
+  },
+  ru: {
+    'play.e.launcher_missing': 'Этой игре нужен её лаунчер (Steam, Epic Games или Riot Client), а OpLarik его не нашёл. Запустите лаунчер хотя бы раз или переустановите его.',
+    'play.adminQ': 'Запустить от администратора?', 'play.adminD': 'Windows не дала OpLarik запустить {name} с обычными правами (возможно, отключена служба «Вторичный вход в систему»). Игру можно запустить от администратора: она будет работать, но Steam может предупредить об этом, а оверлеи других программ могут не появиться.', 'play.adminGo': 'Запустить от администратора',
+    'play.btn': 'Играть', 'play.title': 'Играть', 'play.sub': 'Ваши игры, сначала последние', 'play.all': 'Все игры ({n})',
+    'play.last': 'играли {when}', 'play.never': 'ещё не запускали', 'play.total': 'всего {h} ч {m} мин', 'play.totalM': 'всего {m} мин',
+    'play.started': 'Запускаем {name}…', 'play.via': 'Через {via}',
+    'play.autoHint': 'Совет: включите автоматический игровой режим в разделе «Буст», и буст будет включаться сам.',
+    'play.e.no_path': 'OpLarik не знает, где установлена эта игра. Удалите её и добавьте снова через «Найти установленные игры» или «Добавить игру».',
+    'play.e.not_found': 'Файл игры не найден. Возможно, её перенесли или удалили.',
+  },
+  uk: {
+    'play.e.launcher_missing': 'Цій грі потрібен її лаунчер (Steam, Epic Games або Riot Client), а OpLarik його не знайшов. Запустіть лаунчер хоча б раз або перевстановіть його.',
+    'play.adminQ': 'Запустити від адміністратора?', 'play.adminD': 'Windows не дала OpLarik запустити {name} зі звичайними правами (можливо, вимкнено службу «Вторинний вхід у систему»). Гру можна запустити від адміністратора: вона працюватиме, але Steam може попередити про це, а оверлеї інших програм можуть не з’явитися.', 'play.adminGo': 'Запустити від адміністратора',
+    'play.btn': 'Грати', 'play.title': 'Грати', 'play.sub': 'Ваші ігри, спершу останні', 'play.all': 'Усі ігри ({n})',
+    'play.last': 'грали {when}', 'play.never': 'ще не запускали', 'play.total': 'загалом {h} год {m} хв', 'play.totalM': 'загалом {m} хв',
+    'play.started': 'Запускаємо {name}…', 'play.via': 'Через {via}',
+    'play.autoHint': 'Порада: увімкніть автоматичний ігровий режим у розділі «Буст», і буст вмикатиметься сам.',
+    'play.e.no_path': 'OpLarik не знає, де встановлено цю гру. Видаліть її та додайте знову через «Знайти встановлені ігри» або «Додати гру».',
+    'play.e.not_found': 'Файл гри не знайдено. Можливо, її перенесли або видалили.',
+  },
+  pl: {
+    'play.e.launcher_missing': 'Ta gra potrzebuje swojego launchera (Steam, Epic Games lub Riot Client), a OpLarik go nie znalazł. Uruchom launcher choć raz lub zainstaluj go ponownie.',
+    'play.adminQ': 'Uruchomić jako administrator?', 'play.adminD': 'Windows nie pozwolił OpLarikowi uruchomić {name} ze zwykłymi uprawnieniami (być może wyłączona jest usługa Logowanie pomocnicze). Grę można uruchomić jako administrator: będzie działać, ale Steam może o tym ostrzec, a nakładki innych programów mogą się nie pojawić.', 'play.adminGo': 'Uruchom jako administrator',
+    'play.btn': 'Graj', 'play.title': 'Graj', 'play.sub': 'Twoje gry, od ostatnio uruchamianych', 'play.all': 'Wszystkie gry ({n})',
+    'play.last': 'grano {when}', 'play.never': 'jeszcze nie uruchamiano', 'play.total': 'łącznie {h} godz. {m} min', 'play.totalM': 'łącznie {m} min',
+    'play.started': 'Uruchamiamy {name}…', 'play.via': 'Przez {via}',
+    'play.autoHint': 'Wskazówka: włącz automatyczny tryb gry na stronie Boost, a Boost będzie włączał się sam.',
+    'play.e.no_path': 'OpLarik nie wie, gdzie jest zainstalowana ta gra. Usuń ją i dodaj ponownie przez „Znajdź zainstalowane gry” lub „Dodaj grę”.',
+    'play.e.not_found': 'Nie znaleziono pliku gry. Mogła zostać przeniesiona lub odinstalowana.',
+  },
+};

@@ -1,0 +1,4 @@
+dist/
+*.res
+*.exe
+*.exe.sha256
