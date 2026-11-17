@@ -13,4 +13,3 @@
 - `OpLarik-1.1.3-win-x64.zip` — программа, README и лицензии
 - `OpLarik-1.1.3-source.zip` — полный исходный код (сборка воспроизводима: из него получается тот же `OpLarik.exe`)
 
-SHA-256 `OpLarik.exe`: `0ae5e44dc319dabcc1cf882f5750694a56f21f272858d45de38ec2d413e815f2`

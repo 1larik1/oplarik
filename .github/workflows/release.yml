@@ -1,8 +1,10 @@
-# Builds OpLarik and publishes a GitHub release when a tag vX.Y.Z is pushed.
+# Builds OpLarik and publishes a GitHub release: run it from the Actions tab
+# ("Run workflow") after the version in main.go was raised, or push a tag vX.Y.Z.
 # The release carries OpLarik.exe + OpLarik.exe.sha256 (used by the in-app
 # updater) and the program / source zips. Release notes: .github/release-notes.md
 name: release
 on:
+  workflow_dispatch:
   push:
     tags: ["v*"]
 permissions:
@@ -15,10 +17,18 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24.7"
-      - name: Check version matches tag
+      - name: Version
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           V=$(grep -oP 'const appVersion = "\K[^"]+' main.go)
-          test "v$V" = "$GITHUB_REF_NAME" || { echo "main.go has $V, tag is $GITHUB_REF_NAME"; exit 1; }
+          if [ "$GITHUB_REF_TYPE" = tag ] && [ "v$V" != "$GITHUB_REF_NAME" ]; then
+            echo "main.go has $V, tag is $GITHUB_REF_NAME"; exit 1
+          fi
+          if gh release view "v$V" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release v$V already exists - raise appVersion in main.go first"; exit 1
+          fi
+          echo "V=$V" >> "$GITHUB_ENV"
       - name: Test
         run: go test ./...
       - name: Build
@@ -31,6 +41,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          V=${GITHUB_REF_NAME#v}
-          gh release create "$GITHUB_REF_NAME" --title "OpLarik $V" --notes-file .github/release-notes.md \
+          gh release create "v$V" --target "$GITHUB_SHA" --title "OpLarik $V" --notes-file .github/release-notes.md \
             dist/OpLarik.exe dist/OpLarik.exe.sha256 "dist/OpLarik-$V-win-x64.zip" "dist/OpLarik-$V-source.zip"
